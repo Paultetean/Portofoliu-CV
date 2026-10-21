@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tabelul 3.1. Comparatia principalelor platforme de fitness</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #050607;
+        --panel: #0b1012;
+        --panel-soft: #101719;
+        --line: rgba(255, 255, 255, 0.12);
+        --line-strong: rgba(255, 255, 255, 0.2);
+        --text: #f7faf9;
+        --muted: #b9c7c1;
+        --accent: #42f5a7;
+        --warn: #ff7a4a;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background:
+          radial-gradient(circle at 18% 12%, rgba(66, 245, 167, 0.16), transparent 34%),
+          radial-gradient(circle at 90% 80%, rgba(255, 122, 74, 0.12), transparent 32%),
+          var(--bg);
+        color: var(--text);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Arial, sans-serif;
+      }
+
+      .frame {
+        width: 1180px;
+        padding: 42px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
+          var(--panel);
+        border: 1px solid var(--line-strong);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.44);
+      }
+
+      .caption {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 22px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 28px;
+        line-height: 1.15;
+        font-weight: 800;
+        letter-spacing: 0;
+      }
+
+      .badge {
+        flex: 0 0 auto;
+        padding: 9px 13px;
+        border: 1px solid rgba(66, 245, 167, 0.32);
+        background: rgba(66, 245, 167, 0.1);
+        color: var(--accent);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: rgba(5, 8, 9, 0.76);
+      }
+
+      thead th {
+        padding: 16px 14px;
+        background: var(--panel-soft);
+        border-bottom: 1px solid var(--line-strong);
+        color: var(--text);
+        font-size: 14px;
+        text-align: center;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      thead th:first-child {
+        text-align: left;
+        width: 235px;
+      }
+
+      tbody td {
+        padding: 15px 14px;
+        border-bottom: 1px solid var(--line);
+        color: var(--text);
+        font-size: 15px;
+        text-align: center;
+        font-weight: 650;
+      }
+
+      tbody tr:nth-child(even) td {
+        background: rgba(255, 255, 255, 0.018);
+      }
+
+      tbody tr:last-child td {
+        border-bottom: 0;
+      }
+
+      tbody td:first-child {
+        text-align: left;
+        color: #eef6f3;
+        font-weight: 750;
+      }
+
+      .yes {
+        color: var(--accent);
+        font-size: 20px;
+        font-weight: 900;
+      }
+
+      .no {
+        color: var(--warn);
+        font-size: 18px;
+        font-weight: 900;
+      }
+
+      .limited {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 70px;
+        padding: 5px 9px;
+        border: 1px solid rgba(255, 197, 107, 0.28);
+        background: rgba(255, 197, 107, 0.08);
+        color: #ffd28a;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .tet-fit {
+        background: rgba(66, 245, 167, 0.055);
+      }
+
+      .tet-fit-head {
+        color: var(--accent);
+      }
+
+      .note {
+        margin: 16px 0 0;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.45;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="frame" aria-label="Tabel comparativ platforme fitness">
+      <div class="caption">
+        <h1>Tabelul 3.1. Comparatia principalelor platforme de fitness</h1>
+        <span class="badge">Functionalitati cheie</span>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Functionalitate</th>
+            <th>Trainerize</th>
+            <th>TrueCoach</th>
+            <th>MyFitnessPal</th>
+            <th>Fitbod</th>
+            <th>Strong</th>
+            <th class="tet-fit-head">TET-FIT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Management clienti</td>
+            <td><span class="yes">✓</span></td>
+            <td><span class="yes">✓</span></td>
+            <td><span class="no">×</span></td>
+            <td><span class="no">×</span></td>
+            <td><span class="no">×</span></td>
+            <td class="tet-fit"><span class="yes">✓</span></td>
+          </tr>
+          <tr>
+            <td>Planuri de antrenament</td>
+            <td><span class="yes">✓</span></td>
+            <td><span class="yes">✓</span></td>
+            <td><span class="no">×</span></td>
+            <td><span class="yes">✓</span></td>
+            <td><span class="no">×</span></td>
+            <td class="tet-fit"><span class="yes">✓</span></td>
+          </tr>
+          <tr>
+            <td>Monitorizare progres</td>
+            <td><span class="yes">✓</span></td>
+            <td><span class="yes">✓</span></td>
+            <td><span class="yes">✓</span></td>
+            <td><span class="yes">✓</span></td>
+            <td><span class="yes">✓</span></td>
+            <td class="tet-fit"><span class="yes">✓</span></td>
+          </tr>
+          <tr>
+            <td>Nutritie</td>
+            <td><span class="yes">✓</span></td>
+            <td><span class="limited">Limitat</span></td>
+            <td><span class="yes">✓</span></td>
+            <td><span class="no">×</span></td>
+            <td><span class="no">×</span></td>
+            <td class="tet-fit"><span class="yes">✓</span></td>
+          </tr>
+          <tr>
+            <td>Programari</td>
+            <td><span class="yes">✓</span></td>
+            <td><span class="limited">Limitat</span></td>
+            <td><span class="no">×</span></td>
+            <td><span class="no">×</span></td>
+            <td><span class="no">×</span></td>
+            <td class="tet-fit"><span class="yes">✓</span></td>
+          </tr>
+          <tr>
+            <td>Chat antrenor-client</td>
+            <td><span class="yes">✓</span></td>
+            <td><span class="yes">✓</span></td>
+            <td><span class="no">×</span></td>
+            <td><span class="no">×</span></td>
+            <td><span class="no">×</span></td>
+            <td class="tet-fit"><span class="yes">✓</span></td>
+          </tr>
+          <tr>
+            <td>Administrare platforma</td>
+            <td><span class="limited">Limitat</span></td>
+            <td><span class="no">×</span></td>
+            <td><span class="no">×</span></td>
+            <td><span class="no">×</span></td>
+            <td><span class="no">×</span></td>
+            <td class="tet-fit"><span class="yes">✓</span></td>
+          </tr>
+          <tr>
+            <td>Recomandari AI</td>
+            <td><span class="limited">Limitat</span></td>
+            <td><span class="no">×</span></td>
+            <td><span class="no">×</span></td>
+            <td><span class="yes">✓</span></td>
+            <td><span class="no">×</span></td>
+            <td class="tet-fit"><span class="yes">✓</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="note">
+        Comparatia este orientativa si evidentiaza functionalitatile relevante pentru
+        platforma TET-FIT in contextul lucrarii de licenta.
+      </p>
+    </main>
+  </body>
+</html>

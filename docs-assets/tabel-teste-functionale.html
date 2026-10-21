@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <title>Tabel teste funcționale TET-FIT</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #eef2f3;
+      color: #172126;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+    main {
+      width: 1840px;
+      margin: 56px auto;
+      background: #ffffff;
+      border-top: 8px solid #14a36f;
+      box-shadow: 0 18px 48px rgba(29, 43, 50, 0.13);
+      padding: 38px 42px 44px;
+    }
+    h1 {
+      margin: 0;
+      color: #142127;
+      font-size: 32px;
+      font-weight: 750;
+      letter-spacing: 0;
+    }
+    .subtitle {
+      margin: 9px 0 30px;
+      color: #5b6c74;
+      font-size: 17px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      font-size: 16px;
+      line-height: 1.35;
+    }
+    col.id { width: 7%; }
+    col.feature { width: 19%; }
+    col.scenario { width: 25%; }
+    col.expected { width: 39%; }
+    col.result { width: 10%; }
+    th {
+      padding: 17px 16px;
+      background: #172126;
+      color: #ffffff;
+      border: 1px solid #172126;
+      text-align: left;
+      font-size: 15px;
+      font-weight: 700;
+    }
+    td {
+      padding: 15px 16px;
+      border: 1px solid #d5dde0;
+      vertical-align: top;
+    }
+    tbody tr:nth-child(even) { background: #f5f8f7; }
+    tbody tr:hover { background: #edf8f3; }
+    .test-id {
+      color: #087a54;
+      font-family: Consolas, "Courier New", monospace;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .feature { font-weight: 650; }
+    .result {
+      color: #087a54;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .result::before {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      margin-right: 8px;
+      border-radius: 50%;
+      background: #14a36f;
+      content: "";
+      vertical-align: 1px;
+    }
+    footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 22px;
+      color: #6b7b82;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Tabelul testelor funcționale ale platformei TET-FIT</h1>
+    <p class="subtitle">Scenarii reprezentative pentru fluxurile clientului, antrenorului și super-administratorului</p>
+
+    <table>
+      <colgroup>
+        <col class="id">
+        <col class="feature">
+        <col class="scenario">
+        <col class="expected">
+        <col class="result">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Funcționalitate</th>
+          <th>Scenariu de test</th>
+          <th>Rezultat așteptat</th>
+          <th>Rezultat obținut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="test-id">TF-01</td>
+          <td class="feature">Autentificare utilizator</td>
+          <td>Introducerea unor credențiale valide</td>
+          <td>Utilizatorul este autentificat și redirecționat către dashboard-ul rolului său</td>
+          <td class="result">Test trecut</td>
+        </tr>
+        <tr>
+          <td class="test-id">TF-02</td>
+          <td class="feature">Autentificare utilizator</td>
+          <td>Introducerea unei parole incorecte</td>
+          <td>Autentificarea este refuzată, iar aplicația afișează un mesaj de eroare</td>
+          <td class="result">Test trecut</td>
+        </tr>
+        <tr>
+          <td class="test-id">TF-03</td>
+          <td class="feature">Înregistrare client</td>
+          <td>Crearea unui cont nou folosind date valide</td>
+          <td>Contul clientului este creat și salvat în baza de date</td>
+          <td class="result">Test trecut</td>
+        </tr>
+        <tr>
+          <td class="test-id">TF-04</td>
+          <td class="feature">Selectarea antrenorului și planului</td>
+          <td>Alegerea unui antrenor și a unui plan disponibil</td>
+          <td>Planul este asociat clientului și devine planul său activ</td>
+          <td class="result">Test trecut</td>
+        </tr>
+        <tr>
+          <td class="test-id">TF-05</td>
+          <td class="feature">Recomandare de antrenament</td>
+          <td>Introducerea unei cerințe de către antrenor</td>
+          <td>Modelul KNN local generează o propunere adaptată profilului clientului</td>
+          <td class="result">Test trecut</td>
+        </tr>
+        <tr>
+          <td class="test-id">TF-06</td>
+          <td class="feature">Atribuirea exercițiilor</td>
+          <td>Acceptarea și salvarea exercițiilor recomandate</td>
+          <td>Exercițiile sunt salvate ca AssignedExercise și afișate clientului</td>
+          <td class="result">Test trecut</td>
+        </tr>
+        <tr>
+          <td class="test-id">TF-07</td>
+          <td class="feature">Completarea antrenamentului</td>
+          <td>Introducerea repetărilor și greutăților realizate</td>
+          <td>Rezultatele sunt salvate, iar indicatorii de progres sunt actualizați</td>
+          <td class="result">Test trecut</td>
+        </tr>
+        <tr>
+          <td class="test-id">TF-08</td>
+          <td class="feature">Monitorizarea progresului</td>
+          <td>Vizualizarea graficelor de evoluție</td>
+          <td>Graficele sunt construite pe baza rezultatelor salvate în istoricul clientului</td>
+          <td class="result">Test trecut</td>
+        </tr>
+        <tr>
+          <td class="test-id">TF-09</td>
+          <td class="feature">Programarea ședințelor</td>
+          <td>Rezervarea unui interval deschis de antrenor</td>
+          <td>Rezervarea este salvată, iar intervalul nu mai poate fi rezervat de alt client</td>
+          <td class="result">Test trecut</td>
+        </tr>
+        <tr>
+          <td class="test-id">TF-10</td>
+          <td class="feature">Mesagerie client–antrenor</td>
+          <td>Trimiterea unui mesaj într-o conversație</td>
+          <td>Mesajul este salvat și afișat în conversația corespunzătoare</td>
+          <td class="result">Test trecut</td>
+        </tr>
+        <tr>
+          <td class="test-id">TF-11</td>
+          <td class="feature">Crearea unui antrenor</td>
+          <td>Adăugarea unui cont de către super-administrator</td>
+          <td>Contul este creat cu rolul TRAINER și apare în lista utilizatorilor</td>
+          <td class="result">Test trecut</td>
+        </tr>
+        <tr>
+          <td class="test-id">TF-12</td>
+          <td class="feature">Dezactivarea unui cont</td>
+          <td>Dezactivarea unui utilizator de către super-administrator</td>
+          <td>Accesul utilizatorului este refuzat inclusiv pentru un token JWT existent</td>
+          <td class="result">Test trecut</td>
+        </tr>
+        <tr>
+          <td class="test-id">TF-13</td>
+          <td class="feature">Plăți și venituri simulate</td>
+          <td>Accesarea secțiunii financiare administrative</td>
+          <td>Sunt afișate valorile estimate pe baza planurilor active ale antrenorilor</td>
+          <td class="result">Test trecut</td>
+        </tr>
+        <tr>
+          <td class="test-id">TF-14</td>
+          <td class="feature">Audit administrativ</td>
+          <td>Vizualizarea jurnalului de activitate</td>
+          <td>Acțiunile administrative sunt afișate în ordine cronologică</td>
+          <td class="result">Test trecut</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <footer>
+      <span>Platforma TET-FIT</span>
+      <span>Testare funcțională</span>
+    </footer>
+  </main>
+</body>
+</html>

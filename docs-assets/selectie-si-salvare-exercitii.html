@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <title>Selectia si salvarea exercitiilor</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #f4f6f8;
+      color: #d8dee9;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+    main {
+      width: 1440px;
+      margin: 48px auto;
+      background: #111820;
+      border: 1px solid #27313c;
+      box-shadow: 0 18px 50px rgba(20, 30, 40, 0.18);
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      padding: 0 28px;
+      background: #19222b;
+      border-bottom: 1px solid #303b46;
+    }
+    .file {
+      color: #f5f7fa;
+      font-size: 20px;
+      font-weight: 650;
+    }
+    .path {
+      color: #8fa3b8;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 15px;
+    }
+    section + section { border-top: 1px solid #303b46; }
+    h2 {
+      margin: 0;
+      padding: 18px 28px 4px;
+      color: #6ee7b7;
+      font-size: 16px;
+      font-weight: 650;
+      letter-spacing: 0;
+    }
+    pre {
+      margin: 0;
+      padding: 14px 28px 24px;
+      overflow: hidden;
+      color: #d8dee9;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 16px;
+      line-height: 1.52;
+      tab-size: 2;
+      white-space: pre;
+    }
+    .ln {
+      display: inline-block;
+      width: 48px;
+      margin-right: 20px;
+      color: #56687a;
+      text-align: right;
+      user-select: none;
+    }
+    .kw { color: #ff7b72; }
+    .type { color: #79c0ff; }
+    .method { color: #d2a8ff; }
+    .str { color: #a5d6ff; }
+    .num { color: #f2cc60; }
+    .comment { color: #8b949e; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="file">TrainingService.java</div>
+      <div class="path">com.fitness.auth.training</div>
+    </header>
+
+    <section>
+      <h2>Selectarea exercitiilor recomandate din catalog</h2>
+      <pre><span class="ln">612</span><span class="type">WorkoutModelPrediction</span> prediction =
+<span class="ln">613</span>    <span class="method">predictWorkoutStructure</span>(profile, plan, prompt);
+<span class="ln">614</span>
+<span class="ln">615</span><span class="type">List&lt;Exercise&gt;</span> sortedCandidates =
+<span class="ln">616</span>    exerciseService.<span class="method">getAllExercises</span>().<span class="method">stream</span>()
+<span class="ln">617</span>        .<span class="method">filter</span>(exercise -&gt;
+<span class="ln">618</span>            <span class="method">matchesAnyGroup</span>(exercise, prediction.<span class="method">targetGroups</span>()))
+<span class="ln">619</span>        .<span class="method">filter</span>(exercise -&gt;
+<span class="ln">620</span>            !<span class="method">isRestricted</span>(exercise, profile, prompt))
+<span class="ln">621</span>        .<span class="method">filter</span>(exercise -&gt;
+<span class="ln">622</span>            !<span class="method">matchesAvoidPatterns</span>(
+<span class="ln">623</span>                exercise, prediction.<span class="method">avoidPatterns</span>()))
+<span class="ln">624</span>        .<span class="method">sorted</span>(Comparator.<span class="method">comparingInt</span>(
+<span class="ln">625</span>            (<span class="type">Exercise</span> exercise) -&gt; <span class="method">exerciseScore</span>(
+<span class="ln">626</span>                exercise, context, prediction.<span class="method">priorityTerms</span>(),
+<span class="ln">627</span>                prediction.<span class="method">preferredEquipment</span>()))
+<span class="ln">628</span>            .<span class="method">reversed</span>())
+<span class="ln">629</span>        .<span class="method">toList</span>();
+<span class="ln">630</span>
+<span class="ln">658</span><span class="kw">int</span> exerciseCount = Math.<span class="method">min</span>(
+<span class="ln">659</span>    prediction.<span class="method">exerciseCount</span>(), sortedCandidates.<span class="method">size</span>());
+<span class="ln">660</span><span class="type">List&lt;Exercise&gt;</span> candidates = <span class="method">selectBalancedCandidates</span>(
+<span class="ln">661</span>    sortedCandidates, prediction.<span class="method">priorityTerms</span>(), exerciseCount);
+<span class="ln">680</span>
+<span class="ln">681</span><span class="type">List&lt;GeneratedExerciseResponse&gt;</span> generatedExercises =
+<span class="ln">682</span>    candidates.<span class="method">stream</span>().<span class="method">limit</span>(exerciseCount)
+<span class="ln">683</span>        .<span class="method">map</span>(exercise -&gt; <span class="kw">new</span> <span class="type">GeneratedExerciseResponse</span>(
+<span class="ln">684</span>            exercise.<span class="method">exerciseId</span>(), exercise.<span class="method">name</span>(),
+<span class="ln">685</span>            exercise.<span class="method">gifUrl</span>(), dayName, scheduledDate,
+<span class="ln">686</span>            <span class="method">normalizeMuscleGroups</span>(exercise.<span class="method">bodyParts</span>()),
+<span class="ln">687</span>            prediction.<span class="method">sets</span>(), prediction.<span class="method">minReps</span>(),
+<span class="ln">688</span>            prediction.<span class="method">maxReps</span>(), <span class="kw">null</span>,
+<span class="ln">689</span>            <span class="method">buildGeneratedExerciseNotes</span>(exercise, profile, prompt)))
+<span class="ln">690</span>        .<span class="method">toList</span>();</pre>
+    </section>
+
+    <section>
+      <h2>Salvarea exercitiului acceptat in planul clientului</h2>
+      <pre><span class="ln">470</span><span class="kw">@Transactional</span>
+<span class="ln">471</span><span class="kw">public</span> <span class="type">AssignedExerciseResponse</span> <span class="method">assignExercise</span>(
+<span class="ln">472</span>    <span class="type">AppUser</span> trainerUser, <span class="type">UUID</span> clientId,
+<span class="ln">473</span>    <span class="type">AssignExerciseRequest</span> request) {
+<span class="ln">474</span>  <span class="type">ClientPlan</span> plan = <span class="method">requireTrainerClientPlan</span>(trainerUser, clientId);
+<span class="ln">475</span>  <span class="method">validateExercisePrescription</span>(
+<span class="ln">476</span>      request.<span class="method">setsCount</span>(), request.<span class="method">minReps</span>(), request.<span class="method">maxReps</span>());
+<span class="ln">477</span>
+<span class="ln">478</span>  <span class="type">AssignedExercise</span> assignedExercise = <span class="kw">new</span> <span class="type">AssignedExercise</span>(
+<span class="ln">479</span>      plan.<span class="method">getClient</span>(), plan.<span class="method">getTrainingPlan</span>().<span class="method">getTrainerProfile</span>(),
+<span class="ln">480</span>      request.<span class="method">exerciseId</span>(), request.<span class="method">exerciseName</span>(), request.<span class="method">gifUrl</span>(),
+<span class="ln">481</span>      <span class="method">normalizeDayName</span>(request.<span class="method">dayName</span>()), request.<span class="method">scheduledDate</span>(),
+<span class="ln">482</span>      <span class="method">normalizeMuscleGroups</span>(request.<span class="method">muscleGroups</span>()),
+<span class="ln">483</span>      request.<span class="method">setsCount</span>(), request.<span class="method">minReps</span>(), request.<span class="method">maxReps</span>(),
+<span class="ln">484</span>      request.<span class="method">notes</span>(), request.<span class="method">suggestedWeight</span>());
+<span class="ln">485</span>
+<span class="ln">493</span>  <span class="kw">return</span> mapper.<span class="method">toAssignedExerciseResponse</span>(
+<span class="ln">494</span>      assignedExerciseRepository.<span class="method">save</span>(assignedExercise));
+<span class="ln">495</span>}</pre>
+    </section>
+  </main>
+</body>
+</html>

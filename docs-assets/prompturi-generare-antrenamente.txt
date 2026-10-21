@@ -1,0 +1,63 @@
+Prompturi reale pentru generarea antrenamentelor in TET-FIT
+===========================================================
+
+Aceste exemple pot fi introduse in aplicatie de catre antrenor in campul
+"Prompt antrenor", in formularul "Genereaza antrenament pentru ziua selectata".
+
+Prompturi generale
+------------------
+
+zi de piept si triceps cu focus pe triceps
+
+piept si triceps, prioritizeaza impins cu bara si gantere
+
+push day piept triceps, vreau mai mult volum pe triceps
+
+zi de spate si biceps cu focus pe spate
+
+pull day cu accent pe spate, foloseste ramat si tractiuni asistate
+
+spate si biceps, vreau biceps mai intens
+
+zi de picioare cu focus pe cvadriceps
+
+picioare cu greutati, prioritizeaza genuflexiuni cu bara si fandari cu gantere
+
+legs day, focus pe posterior chain, fara indreptari grele
+
+zi de umeri cu gantere
+
+umeri, delts si stabilizare scapulara
+
+arms day, biceps si triceps, foloseste bara si gantere
+
+full body de forta
+
+antrenament forta tot corpul, baza pe exercitii compuse
+
+slabire si conditionare, intensitate moderata
+
+fat loss low impact, fara sarituri
+
+push day cu umar sensibil, evita impins deasupra capului
+
+picioare fara genuflexiuni, genunchi sensibil
+
+spate si biceps fara pull ups
+
+full body pentru incepator, tehnica de baza
+
+
+Prompturi recomandate pentru demo - Precup Stefan
+-------------------------------------------------
+
+zi de piept si triceps, prioritizeaza barbell bench press, dumbbell incline press si exercitii pentru triceps
+
+zi de spate si biceps, prioritizeaza ramat cu bara, ramat cu gantere si flexii pentru biceps
+
+zi de picioare cu greutati, prioritizeaza genuflexiuni cu bara, fandari cu gantere si Romanian deadlift
+
+zi de umeri, prioritizeaza shoulder press cu gantere, ridicari laterale si rear delts
+
+arms day, biceps si triceps, prioritizeaza barbell curl, dumbbell curl si extensii pentru triceps
+
