@@ -10,31 +10,31 @@ I designed and developed TET-FIT to address a practical problem in personal trai
 
 ## Application preview
 
-![TET-FIT landing page](screenshots/landing-page.png)
+![TET-FIT landing page](landing-page.png)
 
 | Client dashboard | Trainer dashboard |
 | --- | --- |
-| ![Client dashboard](screenshots/client-dashboard.png) | ![Trainer dashboard](screenshots/trainer-dashboard.png) |
+| ![Client dashboard](client-dashboard.png) | ![Trainer dashboard](trainer-dashboard.png) |
 
 | AI-assisted workouts | Exercise progress |
 | --- | --- |
-| ![AI workout recommendations](screenshots/ai-workout.png) | ![Exercise progress chart](screenshots/exercise-progress.png) |
+| ![AI workout recommendations](ai-workout.png) | ![Exercise progress chart](exercise-progress.png) |
 
 <details>
 <summary>More screenshots</summary>
 
 ### Trainer packages
-![Trainer packages](screenshots/trainer-plans.png)
+![Trainer packages](trainer-plans.png)
 
 ### Exercise management
-![Exercise management](screenshots/exercise-management.png)
+![Exercise management](exercise-management.png)
 
 ### Nutrition targets and progress
-![Nutrition targets](screenshots/nutrition-targets.png)
-![Nutrition progress](screenshots/nutrition-progress.png)
+![Nutrition targets](nutrition-targets.png)
+![Nutrition progress](nutrition-progress.png)
 
 ### Super-admin dashboard
-![Super-admin dashboard](screenshots/admin-dashboard.png)
+![Super-admin dashboard](admin-dashboard.png)
 </details>
 
 ## Key features
